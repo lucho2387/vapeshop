@@ -1,0 +1,248 @@
+.modalDetalle {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  z-index: 9;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__dialog {
+  background: white;
+  padding: 10px;
+  width: 800px;
+  height: 600px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #b5aec436;
+  margin-top: 100px;
+}
+
+.modalDetalle-open {
+  display: grid;
+}
+
+.botonCerrarDetalle {
+  position: relative;
+  left: 397px;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.815);
+}
+
+.botonCerrarDetalle:hover {
+  background-color: #b5aec436;
+}
+
+.tituloDetalle1 {
+  font-size: 28px;
+  color: #6d6b74d7;
+  margin-bottom: 30px;
+}
+.colorDetalle {
+  color: #fe4c4f9a;
+  text-transform: uppercase;
+  font-size: 25px;
+  margin-bottom: 30px;
+  position: relative;
+  top: -350px;
+}
+.precioDetalle {
+  color: #b5aec4a2;
+  font-size: 22px;
+  position: relative;
+  top: -360px;
+}
+
+.imagenDetalle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagenTamaño {
+  width: 200px;
+  height: 320px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+.textoDetalle {
+  text-align: justify;
+  font-size: 12px;
+  margin-right: 120px;
+  margin-left: 20px;
+}
+
+.botonTerminar {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 650px;
+  height: 30px;
+  margin-left: 15px;
+  border-radius: 50px;
+  border: none;
+  color: #b5aec4;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botonTerminar:hover {
+  background-color: #fe4c50;
+  color: white;
+}
+
+.imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -80px;
+  margin: 2px;
+  width: 250px;
+  height: 200px;
+}
+
+.imagenSrc {
+  width: 45px;
+  height: 45px;
+}
+
+.botonImagen {
+  border: 1px solid #b5aec421;
+  margin: 5px;
+}
+.botonImagen:hover {
+  background-color: #fe4c50;
+}
+
+@media only screen and (max-width: 650px) {
+  .modal__dialog {
+    width: 500px;
+    height: 700px;
+    margin-top: 150px;
+  }
+
+  .botonCerrarDetalle {
+    position: relative;
+    left: 250px;
+    top: -25px;
+  }
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imagenes {
+    position: relative;
+    top: 15px;
+  }
+
+  .colorDetalle {
+    position: relative;
+    top: -160px;
+    left: 10px;
+  }
+
+  .precioDetalle {
+    position: relative;
+    top: -170px;
+    left: 10px;
+  }
+
+  .botonTerminar {
+    width: 450px;
+  }
+  .tituloDetalle1 {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .modalDetalle {
+    width: auto;
+    height: auto;
+  }
+  .modal__dialog {
+    width: 400px;
+    height: 750px;
+    margin-top: 150px;
+    margin-left: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imagenTamaño {
+    width: 150px;
+    height: 220px;
+    margin-left: 80px;
+    position: relative;
+    left: -30px;
+  }
+
+  .textoDetalle {
+    text-align: justify;
+    font-size: 12px;
+    margin: 20px;
+  }
+
+  .imagenDetalle {
+    flex-direction: column;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 20px;
+  }
+
+  .botonCerrarDetalle {
+    position: relative;
+    left: 196px;
+    top: -20px;
+  }
+
+  .botonTerminar {
+    width: 320px;
+  }
+  .imagenes {
+    position: relative;
+    top: 55px;
+  }
+
+  .colorDetalle {
+    position: relative;
+    top: -115px;
+    left: 10px;
+  }
+  .precioDetalle {
+    position: relative;
+    top: -130px;
+    left: 10px;
+  }
+}

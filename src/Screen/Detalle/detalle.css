@@ -1,0 +1,13 @@
+.tituloDetalle {
+  background-color: black;
+  color: white;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  letter-spacing: 10px;
+  font-size: 65px;
+}

@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.botonIncrementar1,
+.botonDisminuir1 {
+  position: relative;
+  left: 420px;
+  top: -50px;
+  padding: 10px;
+  margin: 2px;
+  margin-top: 50px;
+  margin-left: 10px;
+  border: none;
+  background-color: white;
+  color: #b5aec4;
+  margin-top: -180px;
+}
+
+.botonIncrementar1:hover,
+.botonDisminuir1:hover {
+  color: #fe4c50;
+  font-size: 24px;
+  transition: all 600ms ease;
+}
+
+.cantidad1 {
+  position: relative;
+  left: 420px;
+  top: -50px;
+  margin: 10px;
+  padding-left: 10px;
+  margin-top: -170px;
+  color: #b5aec4a2;
+}
+
+.precioProducto1 {
+  position: relative;
+  top: -80px;
+  left: 280px;
+  width: 180px;
+  font-size: 25px;
+  color: #fe4c4f9a;
+}
+
+.spanPrecio1 {
+  width: 120px;
+  position: relative;
+  color: #b5aec4a2;
+}
+
+.botonAgregar1 {
+  position: relative;
+  top: 10px;
+  left: -10px;
+  width: 650px;
+  height: 30px;
+  margin-left: 15px;
+  border-radius: 50px;
+  border: none;
+  color: #b5aec4;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.botonAgregar1:hover {
+  background-color: #fe4c50;
+  color: white;
+}
+
+@media only screen and (max-width: 650px) {
+  .botonIncrementar1,
+  .botonDisminuir1 {
+    position: relative;
+    left: 310px;
+    top: -10px;
+  }
+
+  .cantidad1 {
+    position: relative;
+    left: 310px;
+    top: -10px;
+  }
+
+  .precioProducto1 {
+    position: relative;
+    left: 192px;
+    top: -55px;
+    width: 150px;
+    font-size: 19px;
+  }
+  .botonAgregar1 {
+    position: relative;
+    top: 20px;
+    left: -8px;
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .botonAgregar1 {
+    position: relative;
+    top: 30px;
+    left: -10px;
+    width: 350px;
+  }
+
+  .botonIncrementar1,
+  .botonDisminuir1 {
+    position: relative;
+    left: 260px;
+    top: 20px;
+  }
+
+  .cantidad1 {
+    position: relative;
+    left: 260px;
+    top: 20px;
+  }
+
+  .precioProducto1 {
+    position: relative;
+    left: 140px;
+    top: -35px;
+    width: 150px;
+    font-size: 19px;
+  }
+}
