@@ -45,6 +45,8 @@ Contiene:
 - Muestra el Total de la Compra
 - Actualiza el total al modificar cantidades de productos.
 
+6. Login Y registro (View)
+
 ## Dependencias
 
 Uso de React Router Dom para la navegación
