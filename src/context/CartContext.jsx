@@ -26,7 +26,7 @@ export function CartContextProvider({ children }) {
         
         if (isOnCart(item) === -1) {
             setCartItems([...cartItems, item])
-            alert("El producto se agrego al carrito correctamente")
+            // alert("El producto se agrego al carrito correctamente")
             setIrAlCarrito(true)
         } else {
             alert("El producto ya fue agregado")
