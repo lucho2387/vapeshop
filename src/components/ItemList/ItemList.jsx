@@ -9,7 +9,7 @@ const ItemList = ({items}) => {
                 <div className="contenedorProducto" key={index}>
                     <h1 className="tituloProducto">{item.name}</h1>
                     <img className="imagenProducto1" src={item.image} alt="producto1" />
-                    <p>{items.colour}</p>
+                    {/* <p>{items.colour}</p> */}
                     <span className="spanProducto">Cantidad: {item.stock}</span>
                     <span className="tituloProducto">Precio: $ {item.price}</span>
                     <Link to={`/producto/${item.id}`}><button className="botonProducto">Ver Detalle</button></Link>
