@@ -1,8 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAUGeO-wAajKOyAmSnpXmATHduZbKFKJeE",
+  authDomain: "vapeshop-24888.firebaseapp.com",
+  projectId: "vapeshop-24888",
+  storageBucket: "vapeshop-24888.appspot.com",
+  messagingSenderId: "53438948333",
+  appId: "1:53438948333:web:671d8ef1ada751e5673de4"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
+
 
 ReactDOM.render(
   <React.StrictMode>
