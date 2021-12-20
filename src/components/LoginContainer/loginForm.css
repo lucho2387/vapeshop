@@ -97,3 +97,4 @@ input::not(:last-of-type) {
 .form-boton:hover {
   filter: brightness(1.2);
 }
+
