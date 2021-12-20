@@ -11,12 +11,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAUGeO-wAajKOyAmSnpXmATHduZbKFKJeE",
-  authDomain: "vapeshop-24888.firebaseapp.com",
-  projectId: "vapeshop-24888",
-  storageBucket: "vapeshop-24888.appspot.com",
-  messagingSenderId: "53438948333",
-  appId: "1:53438948333:web:671d8ef1ada751e5673de4"
+  apiKey: "AIzaSyAyOnaS43dx1xKhhtoQz51x0D0KnZj5Zec",
+  authDomain: "ecommerce-3ef0f.firebaseapp.com",
+  projectId: "ecommerce-3ef0f",
+  storageBucket: "ecommerce-3ef0f.appspot.com",
+  messagingSenderId: "337090516129",
+  appId: "1:337090516129:web:ac157e74a3b26e14498ce0",
 };
 
 // Initialize Firebase
