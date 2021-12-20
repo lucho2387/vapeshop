@@ -26,7 +26,8 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
-           <Route path="/registro" element={<Registro />}/>
+          <Route path="/registro" element={<Registro />}/>
+          <Route path="/pedido" element={<Pedido />}/>
         </Routes>
       </BrowserRouter>
     </CartContextProvider>  
