@@ -10,8 +10,6 @@ const LoginContainer = (props) => {
                     <div className="fondo"></div>
                     <div className="container-header">
                         <h2 className="titulo-header">Login</h2>
-                        {/* <h2 className="titulo-header">Atras</h2>
-                        <h5 className="texto-parrafo">Por favor registrese para continuar</h5> */}
                     </div>
                 </div>
                 <LoginForm />
