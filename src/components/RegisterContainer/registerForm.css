@@ -38,3 +38,15 @@
   color: rgba(0, 0, 0, 0.329);
   filter: brightness(1.2);
 }
+
+.error {
+  color: white;
+  font-size: 12px;
+  width: 270px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.281);
+  border-radius: 10px;
+  position: relative;
+  top: -12px;
+  left: 5px;
+}
