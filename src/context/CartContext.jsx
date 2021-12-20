@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
-import { products } from '../components/ItemListContainer/Items'
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore'
 
 const CartContext = React.createContext()
 
@@ -9,13 +9,18 @@ export function CartContextProvider({ children }) {
     const [items, setItems] = useState([])
     const [cartItems, setCartItems] = useState([])
     const [irAlCarrito, setIrAlCarrito] = useState(false)
-    // const [isLoading, setIsLoading] = useState(true);
+    const db = getFirestore() 
+    const refItems = collection(db, "productos")
+    const refCart = collection(db, "cartItems")
 
-    useEffect(() => {
-        setTimeout(() => {
-            setItems(products)
-        })
-    }, []);
+    useEffect(() => { 
+
+    getDocs(refItems) 
+      .then((snapShop) => { 
+         setItems(snapShop.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+      }) 
+
+  }, []) 
 
     // Validacion
     const isOnCart = (product) => {
@@ -25,37 +30,55 @@ export function CartContextProvider({ children }) {
     const addToCart = (item) => {
         
         if (isOnCart(item) === -1) {
-            setCartItems([...cartItems, item])
-            // alert("El producto se agrego al carrito correctamente")
-            setIrAlCarrito(true)
+            //Agrega el producto al carrito
+            addDoc(refCart, item)
+            //recargamos los items
+                .then(() => {
+                    getCartItems()
+                    setIrAlCarrito(true)
+                })
+            
         } else {
-            alert("El producto ya fue agregado")
+            const ref = cartItems.find(product => product.id === item.id)
+            const pro = doc(db, 'cartItems', ref.cartId)
+            updateDoc(pro, { count: ref.count + 1 }).then(() => {
+                getCartItems()
+            })
         }
        
     }
 
+    // Funcion para recargar de nuevo todos los productos
+    const getCartItems = () => {
+        getDocs(refCart) 
+            .then((snapShop) => { 
+                setCartItems(snapShop.docs.map((doc) => ({cartId: doc.id, cartCategory: doc.category, ...doc.data()})))
+            }) 
+    }
+
     const deleteFromCart = (product) => {
-        setCartItems(cartItems.filter(item => item.id !== product.id))
+        // setCartItems(cartItems.filter(item => item.id !== product.id))
+        const ref = cartItems.find(item => item.id === product.id)
+        const pro = doc(db, 'cartItems', ref.cartId)
+        deleteDoc(pro, product).then(() => {
+            getCartItems()
+        })
     }
 
     const deleteItemsCategory = (product) => {
         setCartItems(cartItems.filter(item => item.category !== product.category))
+        // const ref = cartItems.find(item => item.category !== product.category)
+        // const pro = doc(db, 'cartItems', toString(ref.cartCategory))
+        // deleteDoc(pro, product).then(() => {
+        //     getCartItems()
+        // })
     }
 
     const deleteItems = () => {
         setCartItems([])
     }
 
-    //     const sort_lists = (item) => {
-    //        [...cartItems].sort((b, a) => (a[item.category] > b[item.category] ? 1 : a[item.category] < b[item.category] ? -1 : 0))
-    //    }
     
-    // const sort_lists = (item) => {
-    //     setCartItems(cartItems.sort((a,b) => (a[item.id] > b[item.id] ? 1 : a[item.id] < b[item.id] ? -1 : 0)))
-    // }
-    
-    
-
     const decrease = id => {
         cartItems.forEach(item => {
             if (item.id === id) {
@@ -82,7 +105,7 @@ export function CartContextProvider({ children }) {
     
     return (
         <CartContext.Provider 
-            value={{ items, addToCart, setItems, cartItems, deleteFromCart, decrease, increase, deleteItems, deleteItemsCategory, irAlCarrito, activarBoton }}>
+            value={{ items, addToCart, setItems, cartItems, setCartItems, deleteFromCart, decrease, increase, deleteItems, deleteItemsCategory, irAlCarrito, activarBoton }}>
             {children}
         </CartContext.Provider>
     )
@@ -125,12 +148,5 @@ export function useActivarBoton(){
     return useContext(CartContext).activarBoton
 }
 
-// export function useIsLoading(){
-//     return useContext(CartContext).isLoading
-// }
-
-// export function useOrdenar(){
-//     return useContext(CartContext).sort_lists
-// }
-
 export default CartContext
+
