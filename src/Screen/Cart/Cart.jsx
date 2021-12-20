@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './cart.css'
 import { useCartItems,useDeletefromCart, useCountDecrease, useCountIncrease, useDeleteItems, useDeleteCategoryItems } from '../../context/CartContext'
 
+
 const Cart = () => {
     
     const cartItems = useCartItems()
@@ -12,6 +13,7 @@ const Cart = () => {
     const increase = useCountIncrease()
     const deleteItems = useDeleteItems()
     const deleteItemsCategory = useDeleteCategoryItems()
+    // const addToOrder = useAddToOrder()
     // const sort_lists = useOrdenar()
     const [total, setTotal] = useState(0)
 
@@ -67,11 +69,10 @@ const Cart = () => {
                                                 </div>
                                             </div>
                                             <div className="total">
-                                           
                                                 <div className="cart-botones">
-                                                    {/* <button className="cart-button-pagar" onClick={() => sort_lists(item)}>Ordenar Categoria</button> */}
                                                     <button className="cart-button-eliminar" onClick={() => deleteItemsCategory(item)}><i className="fas fa-eraser"></i>Eliminar Categoria</button>
                                                     <button className="cart-button-limpiar" onClick={() => deleteItems()}><i className="fas fa-trash-alt"></i>Limpiar</button>
+                                                  
                                                 </div>
                                             </div>
                                             </>
@@ -82,6 +83,7 @@ const Cart = () => {
                             
                         </div>
                         <h3 className="cart-total">Total: $ <span>{total}</span></h3>
+                        <Link to="/pedido"><button className="cart-button-comprar"><i className="fas fa-credit-card"></i>Checkout</button></Link>
                     </>)
             }
             
