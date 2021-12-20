@@ -1,0 +1,140 @@
+.container-pedido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  font-weight: 300;
+  letter-spacing: 10px;
+  font-size: 20px;
+  border: none;
+}
+
+.container-pedido h1 {
+  padding: 40px;
+  position: relative;
+  top: 120px;
+  left: -590px;
+}
+
+.container-pedido input {
+  margin-top: 10px;
+  width: 550px;
+  height: 30px;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.178);
+  position: relative;
+  left: 500px;
+}
+
+/* .datosPedido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1600px;
+  height: 500px;
+  margin: 20px;
+  border: 2px solid rgba(216, 206, 206, 0.425);
+} */
+
+.fecha {
+  font-size: 15px;
+  margin-top: 20px;
+  position: relative;
+  margin: 40px;
+  top: -642px;
+  left: -100px;
+}
+
+.totalPedido {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.botonComprar {
+  width: 360px;
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.botonComprar:hover {
+  background-color: rgba(169, 169, 169, 0.575);
+}
+
+.cart-container-order {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 1600px;
+  height: 500px;
+  border: 2px solid rgba(216, 206, 206, 0.425);
+}
+
+.cart-title-order {
+  position: relative;
+  left: -250px;
+  font-size: 22px;
+  top: 35px;
+  color: #b5aec496;
+}
+
+.cart-count-order {
+  position: relative;
+  top: -10px;
+  left: 250px;
+  color: #fe4c50;
+}
+
+.cart-price-order {
+  position: relative;
+  top: 15px;
+  left: 630px;
+  color: #b5aec496;
+}
+
+.cart-total-order {
+  position: relative;
+  left: 640px;
+  top: -35px;
+}
+
+.botonComprar {
+  position: relative;
+  top: -80px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.cart-button-order {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #fe4c50;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  top: -40px;
+  left: -650px;
+}
+
+.atrasPedido {
+  position: absolute;
+  font-size: 40px;
+  left: 140px;
+  top: 50px;
+}
