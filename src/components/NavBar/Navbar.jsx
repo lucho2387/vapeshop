@@ -2,10 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../Header/header.css'
 import { useCartItems } from '../../context/CartContext'
+import {useLogOut} from '../../context/ContextAuth'
 
 const Navbar = () => {
     
     const cartItems = useCartItems()
+
+    const logout = useLogOut();
 
     return (
           <nav className="navbar">
@@ -19,7 +22,7 @@ const Navbar = () => {
                     </ul>
                     <ul className="navbar_user">
                         <li><Link to="/buscar"><i className="fa fa-search" arial-hidden="true"></i></Link></li>
-                        <li><Link to="/login"><i className="fa fa-user" arial-hidden="true"></i></Link></li>
+                        <li><a href="/" onClick={() => logout()}><i className="fa fa-user" arial-hidden="true"></i></a></li>
                         {
                         cartItems.length === 0
                         ? ''
