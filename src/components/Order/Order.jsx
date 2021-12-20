@@ -24,9 +24,14 @@ const Order = () => {
         addDoc(refOrder, { nombre, apellido, correo, telefono, fecha, total})
     }
 
-    const addToOrder = () => {
-        saveName(name, apellido, correo, telefono, date, total)
-        alert("Su pedido fue generado correctamente")
+    const addToOrder = (e) => {
+         if (name !== null && apellido !== null && correo !== null && telefono !== null) {
+            saveName(name, apellido, correo, telefono, date, total)
+            alert("Su pedido fue generado correctamente")
+        } else {
+            alert("Hay campos vacios")
+            e.preventDefault()
+        }
     }
 
     
