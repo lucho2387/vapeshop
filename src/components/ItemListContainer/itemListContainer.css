@@ -44,17 +44,18 @@
   background-color: #fe4c50;
 }
 
-.arrivals_grid_sorting li {
+.arrivals_grid_sorting {
+  margin-top: 50px;
+}
+
+.arrivals_grid_sorting button a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.arrivals_grid_sorting li a {
   color: #b5aec4;
 }
 
-.arrivals_grid_sorting li a:hover {
+.arrivals_grid_sorting button a:hover {
   color: white;
 }
 
@@ -84,3 +85,4 @@
     left: 50px;
   }
 }
+
