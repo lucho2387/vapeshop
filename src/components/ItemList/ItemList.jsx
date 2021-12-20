@@ -5,16 +5,20 @@ import './itemList.css'
 const ItemList = ({items}) => {
     return (
         <div className="grid">
-            {items.map((item, index) => (
-                <div className="contenedorProducto" key={index}>
-                    <h1 className="tituloProducto">{item.name}</h1>
-                    <img className="imagenProducto1" src={item.image} alt="producto1" />
-                    {/* <p>{items.colour}</p> */}
-                    <span className="spanProducto">Cantidad: {item.stock}</span>
-                    <span className="tituloProducto">Precio: $ {item.price}</span>
-                    <Link to={`/producto/${item.id}`}><button className="botonProducto">Ver Detalle</button></Link>
-                </div>
-            ))}
+            {items.map((item) => {
+                
+                const { id, name, image, stock, price } = item;
+
+                return(
+                    <div className="contenedorProducto" key={id}>
+                        <h1 className="tituloProducto">{name}</h1>
+                        <img className="imagenProducto1" src={image} alt="producto1" />
+                        <span className="spanProducto">Cantidad: {stock}</span>
+                        <span className="tituloProducto">Precio: $ {price}</span>
+                        <Link to={`/producto/${id}`}><button className="botonProducto">Ver Detalle</button></Link>
+                    </div>
+                )
+            })}
         </div>
     )
 }
