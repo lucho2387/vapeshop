@@ -7,14 +7,16 @@ import Nosotros from './Screen/Nosotros/Nosotros';
 import Contacto from './Screen/Contacto/Contacto';
 import Cart from './Screen/Cart/Cart';
 import Detalle from './Screen/Detalle/Detalle';
-import {CartContextProvider} from './context/CartContext'
 import Login from './Screen/Login/Login';
 import Registro from './Screen/Registro/Registro';
+import { Providers } from './providers/providers';
+import Pedido from './Screen/Pedido/Pedido';
+
 
 function App() {
  
   return (
-    <CartContextProvider>
+    <Providers>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Inicio />} />
@@ -26,11 +28,11 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<Registro />}/>
+          <Route path="/registro" element={<Registro />} />
           <Route path="/pedido" element={<Pedido />}/>
         </Routes>
       </BrowserRouter>
-    </CartContextProvider>  
+    </Providers>  
   );
 }
 
