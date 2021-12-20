@@ -1,56 +1,54 @@
 import React, {useState, useEffect} from 'react'
-// import {products} from '../ItemListContainer/Items'
+import {products} from '../ItemListContainer/Items'
 import ItemList from '../ItemList/ItemList';
 import './itemListContainer.css'
 // import { useParams } from 'react-router-dom';
-// import NavBar from './NavBar';
-import { getFirestore, collection, getDocs } from 'firebase/firestore' 
+import NavBar from './NavBar';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore' 
 
+
+const allCategories = ['all', ...new Set(products.map((item) => item.category))]
+// console.log(allCategories)
 const ItemListContainer = () => {
   
-  // const { items } = useContext(CartContext)
   const [items, setItems] = useState([])
-  // const { productoId } = useParams();
+  const [categories, setCategories] = useState(allCategories)
+ 
 
-  // // console.log(productoId)
-  // useEffect(() => {
-  //     const loadProducts = () => {
-  //       return new Promise((resolve, reject) => {
-  //         setTimeout(() => {
-  //             resolve(products)
-  //         }, 500);
-  //       })
-  //     }
+  const filterItems = (category) => {
+    if (category === 'all') {
+      setItems(products)
+      return
+    }
+    // const newItems = products.filter((item) => 
+    //   item.category === category)
+    //   setItems(newItems)
+    const db = getFirestore() 
+    const refItems = collection(db, "productos")
+    const queryItem = query(refItems, where("category", "==" , category))
     
-  //     loadProducts()
-  //       .then((response) => {
-  //         productoId ? setItems(response.filter((product) => product.category === productoId)) : setItems(response);
-  //       })
-  //       .catch((error) => console.log(error))
-    
-  // }, [productoId]);
+    getDocs(queryItem) 
+        .then((snapShop) => { 
+            setItems(snapShop.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+        }) 
+  }
 
   useEffect(() => { 
+    
     const db = getFirestore() 
-    const ref = collection(db, "products")
+    const ref = collection(db, "productos")
 
     getDocs(ref) 
       .then((snapShop) => { 
-        //trae un objeto con todos los productos
-        // console.log(snapShop.docs.map((doc)=> doc.data())) 
-        //trae un producto por separado
-        snapShop.docs.map((doc)=>
-          setItems(item => ([...item,doc.data()]))
-          // console.log(doc.data().image)
-        )
+         setItems(snapShop.docs.map((doc) => ({id: doc.id, ...doc.data()})))
       }) 
 
   }, []) 
 
   return (
     <>
-      {/* <NavBar /> */}
-      <ItemList items={items}/>
+      <NavBar categories = { categories } filterItems = { filterItems }/>
+      <ItemList items = { items }/>
     </>
     ) 
 }
