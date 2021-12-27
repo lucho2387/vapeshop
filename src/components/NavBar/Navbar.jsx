@@ -20,9 +20,7 @@ const Navbar = () => {
                         <li><Link to="/nosotros">Nosotros</Link></li>
                         <li><Link to="/contacto">Contacto</Link></li>
                     </ul>
-                    <ul className="navbar_user">
-                        <li><Link to="/buscar"><i className="fa fa-search" arial-hidden="true"></i></Link></li>
-                        <li><a href="/" onClick={() => logout()}><i className="fa fa-user" arial-hidden="true"></i></a></li>
+            <ul className="navbar_user">
                         {
                         cartItems.length === 0
                         ? ''
@@ -35,7 +33,8 @@ const Navbar = () => {
                             </li>
                         )
                         }
-                        
+                        <li><Link to="/buscar"><i className="fa fa-search" arial-hidden="true"></i></Link></li>
+                        <li><a href="/" onClick={() => logout()}><i className="fa fa-user" arial-hidden="true"></i></a></li>
                     </ul>
                 </nav>
      )
