@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import ItemDetailContainer from '../../components/ItemDetailContainer/ItemDetailContainer'
 import Header from '../../components/Header/Header'
-import Loader from '../../components/Loader/Loader'
 import './detalle.css'
 
 const Detalle = () => {
