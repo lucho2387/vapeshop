@@ -33,6 +33,9 @@ export function CartContextProvider({ children }) {
         } else {
             item.count++
         }
+        if (item.count > item.stock) {
+            alert("No hay Stock disponible")
+        }
        
     }
 
