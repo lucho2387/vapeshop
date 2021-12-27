@@ -1,8 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, where } from 'firebase/firestore'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const CartContext = React.createContext()
 
+toast.configure()
 
 export function CartContextProvider({ children }) {
     
@@ -29,14 +32,15 @@ export function CartContextProvider({ children }) {
     const addToCart = (item) => {
         
         if (isOnCart(item) === -1) {
-            setCartItems([...cartItems, item])    
-        } else {
-            item.count++
-        }
-        if (item.count > item.stock) {
-            alert("No hay Stock disponible")
-        }
-       
+            setCartItems([...cartItems, item])
+            toast.success("El producto fue agregado al carrito")
+        }else   
+            if (item.count >= item.stock) {
+               toast.warning("No hay Stock disponible")
+        }else {
+               item.count++
+               toast.info("La cantidad del Producto fue incrementada")
+            }  
     }
 
     const deleteFromCart = (product) => {
