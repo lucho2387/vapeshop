@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './order.css'
-import { useCartItems, useDeletefromCart } from '../../context/CartContext'
+import { useCartItems, useDeletefromCart, useDeleteItems } from '../../context/CartContext'
 import { getFirestore, collection, addDoc } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 
@@ -11,6 +11,7 @@ const Order = () => {
     const date = fecha.getDate() + '/' + (fecha.getMonth() + 1) + '/' + fecha.getFullYear();
     const cartItems = useCartItems()
     const deleteItem = useDeletefromCart()
+     const deleteItems = useDeleteItems()
     const [total, setTotal] = useState(0)
     const [name, setName] = useState(null);
     const [apellido, setApellido] = useState(null);
@@ -28,6 +29,7 @@ const Order = () => {
          if (name !== null && apellido !== null && correo !== null && telefono !== null) {
             saveName(name, apellido, correo, telefono, date, total)
             alert("Su pedido fue generado correctamente")
+            deleteItems()
         } else {
             alert("Hay campos vacios")
             e.preventDefault()
