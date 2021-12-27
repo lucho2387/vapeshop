@@ -3,6 +3,8 @@ import './order.css'
 import { useCartItems, useDeletefromCart, useDeleteItems } from '../../context/CartContext'
 import { getFirestore, collection, addDoc } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const Order = () => { 
@@ -28,10 +30,10 @@ const Order = () => {
     const addToOrder = (e) => {
          if (name !== null && apellido !== null && correo !== null && telefono !== null) {
             saveName(name, apellido, correo, telefono, date, total)
-            alert("Su pedido fue generado correctamente")
+            toast.success("Su orden fue generada correctamente")
             deleteItems()
         } else {
-            alert("Hay campos vacios")
+            toast.error("Hay campos Vacios")
             e.preventDefault()
         }
     }
