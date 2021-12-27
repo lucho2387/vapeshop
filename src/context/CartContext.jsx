@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore'
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, where } from 'firebase/firestore'
 
 const CartContext = React.createContext()
 
@@ -11,7 +11,6 @@ export function CartContextProvider({ children }) {
     const [irAlCarrito, setIrAlCarrito] = useState(false)
     const db = getFirestore() 
     const refItems = collection(db, "productos")
-    const refCart = collection(db, "cartItems")
 
     useEffect(() => { 
 
@@ -20,7 +19,7 @@ export function CartContextProvider({ children }) {
          setItems(snapShop.docs.map((doc) => ({id: doc.id, ...doc.data()})))
       }) 
 
-  }, []) 
+    }, []) 
 
     // Validacion
     const isOnCart = (product) => {
@@ -30,54 +29,25 @@ export function CartContextProvider({ children }) {
     const addToCart = (item) => {
         
         if (isOnCart(item) === -1) {
-            //Agrega el producto al carrito
-            addDoc(refCart, item)
-            //recargamos los items
-                .then(() => {
-                    getCartItems()
-                    setIrAlCarrito(true)
-                })
-            
+            setCartItems([...cartItems, item])    
         } else {
-            const ref = cartItems.find(product => product.id === item.id)
-            const pro = doc(db, 'cartItems', ref.cartId)
-            updateDoc(pro, { count: ref.count + 1 }).then(() => {
-                getCartItems()
-            })
+            item.count++
         }
        
     }
 
-    // Funcion para recargar de nuevo todos los productos
-    const getCartItems = () => {
-        getDocs(refCart) 
-            .then((snapShop) => { 
-                setCartItems(snapShop.docs.map((doc) => ({cartId: doc.id, cartCategory: doc.category, ...doc.data()})))
-            }) 
-    }
-
     const deleteFromCart = (product) => {
-        // setCartItems(cartItems.filter(item => item.id !== product.id))
-        const ref = cartItems.find(item => item.id === product.id)
-        const pro = doc(db, 'cartItems', ref.cartId)
-        deleteDoc(pro, product).then(() => {
-            getCartItems()
-        })
+        setCartItems(cartItems.filter(item => item.id !== product.id))
     }
 
     const deleteItemsCategory = (product) => {
         setCartItems(cartItems.filter(item => item.category !== product.category))
-        // const ref = cartItems.find(item => item.category !== product.category)
-        // const pro = doc(db, 'cartItems', toString(ref.cartCategory))
-        // deleteDoc(pro, product).then(() => {
-        //     getCartItems()
-        // })
     }
 
     const deleteItems = () => {
         setCartItems([])
     }
-
+    
     
     const decrease = id => {
         cartItems.forEach(item => {
@@ -149,4 +119,5 @@ export function useActivarBoton(){
 }
 
 export default CartContext
+
 
