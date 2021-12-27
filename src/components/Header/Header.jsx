@@ -10,7 +10,7 @@ const Header = () => {
     // console.log(user)
     return (
         <header className="header trans_300">
-            <p>Usuario: { user?.email}</p>
+            <p className='usuario'>{ user?.email}</p>
             <a href="/" className ="menuHamburguesa"><i className="fas fa-bars"></i></a>
             <a href="/" className="logo">Vape<span>Shop</span></a>
             <Navbar />
