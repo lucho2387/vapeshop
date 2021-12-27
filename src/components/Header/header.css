@@ -158,6 +158,12 @@ a:link {
 .menuHamburguesa {
   display: none;
 }
+
+.usuario {
+  position: absolute;
+  right: 190px;
+  top: 37px;
+}
 @media only screen and (max-width: 1590px) {
   .logo {
     display: flex;
@@ -176,6 +182,9 @@ a:link {
     position: relative;
     top: -24px;
     right: -350px;
+  }
+  .usuario {
+    display: none;
   }
 }
 
@@ -208,6 +217,9 @@ a:link {
     top: -25px;
     right: -400px;
   }
+  .usuario {
+    display: none;
+  }
 }
 @media only screen and (max-width: 900px) {
   .logo {
@@ -236,6 +248,9 @@ a:link {
     position: relative;
     top: -25px;
     right: -360px;
+  }
+  .usuario {
+    display: none;
   }
 }
 
@@ -267,13 +282,16 @@ a:link {
     top: -25px;
     right: -320px;
   }
+  .usuario {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 650px) {
   .logo {
     display: flex;
     flex-direction: row;
-    left: 200px;
+    left: 215px;
     top: 32px;
     font-size: 30px;
   }
@@ -296,6 +314,9 @@ a:link {
     top: 95px;
     left: 30px;
   }
+  .usuario {
+    display: none;
+  }
 }
 @media only screen and (max-width: 575px) {
   .header {
@@ -306,7 +327,7 @@ a:link {
   .logo {
     position: relative;
     top: 13px;
-    left: 130px;
+    left: 165px;
   }
   .navbar_menu {
     display: none;
@@ -325,8 +346,12 @@ a:link {
     display: flex;
     position: relative;
     top: 40px;
-    left: 30px;
+    left: 50px;
     font-size: 30px;
   }
+  .usuario {
+    display: none;
+  }
 }
+
 
