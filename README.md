@@ -37,6 +37,8 @@ Contiene:
 4. Creacion de un Gif
 
 /vapeshop/Gif/Vapeshop.gif
+/vapeshop/Gif/VapeShopOrdenDeCompra.gif
+
 
 5. Funcionalidades del Carrito de Compras
 
