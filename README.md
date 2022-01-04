@@ -55,6 +55,8 @@ Contiene:
   
 9. Filtro de Productos por Categoria 
 
+10. Incorporacion de la Vista de Contacto y Nosotros 
+
 ## Dependencias
 
 Uso de React Router Dom para la navegación
