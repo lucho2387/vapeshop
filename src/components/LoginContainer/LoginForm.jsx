@@ -6,6 +6,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 const LoginForm = (props) => {
 
     const [loginUser, setLoginUser] = useState()
+    const [error, setError] = useState()
     const auth = getAuth()
 
     const onChangeLogIn = (event) => {
@@ -22,6 +23,7 @@ const LoginForm = (props) => {
                 .then((userCredential) => {
                     console.log(userCredential)
                 })
+                .catch((error) => setError(error.message))
         }else {
             alert("Hay campos vacios")
         }   
@@ -36,6 +38,7 @@ const LoginForm = (props) => {
                     <input className="form-input" type="email" placeholder="Correo" name='email' onChange={onChangeLogIn} />
                     <input className="form-input" type="password" placeholder="Contraseña" name='password' onChange={onChangeLogIn}/>
                     <button type="submit" className="form-boton" onClick={onSubmitLogIn}>Ingresar</button>
+                    { error && <p className="error">{`${error}`}</p>}
                 </form>
             </div>
         </>
