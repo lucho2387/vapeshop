@@ -56,7 +56,7 @@ const Cart = () => {
                                         
                                         return (
                                             <>
-                                            <div key={id} className="cart-container">
+                                            <div key={item.id} className="cart-container">
                                                 <img src={image} alt={image} />
                                                 <span className="cart-title">{name}</span>
                                                 <span className="cart-detail">{detail}</span>
