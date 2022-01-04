@@ -1,14 +1,232 @@
-.tituloContacto {
-  background-color: black;
-  color: white;
-  position: relative;
-  width: 100vw;
-  height: 90vh;
+#contact-section {
+  background-color: white;
+  width: 80vw;
+  height: 80vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-weight: 300;
-  letter-spacing: 10px;
-  font-size: 65px;
+  padding: 80px 13%;
+  margin-top: 135px;
+  margin-left: 175px;
+  border: 2px solid rgba(216, 206, 206, 0.425);
+}
+.contact-right {
+  width: 57%;
+}
+.contact-right ul li {
+  display: flex;
+  align-items: center;
+}
+
+.contact-right h1 {
+  color: #fe4c50;
+  font-size: 37px;
+  margin-bottom: 15px;
+}
+
+.contact-right p {
+  color: #7a7a7a;
+  line-height: 26px;
+  font-size: 15px;
+  text-align: justify;
+}
+
+.contact-right .address {
+  margin: 25px 0;
+}
+
+.contact-right .address ul li {
+  margin-bottom: 15px;
+}
+
+.address .address-logo {
+  margin-right: 15px;
+  color: #fe4c50;
+}
+
+.address .saprater {
+  margin: 0 12px;
+}
+
+.address ul li b {
+  color: #7a7a7a;
+}
+.contact-left .contact-img {
+  width: 250px;
+  height: 300px;
+  border: 3px solid rgba(216, 206, 206, 0.747);
+}
+
+@media only screen and (max-width: 1200px) {
+  #contact-section {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 160px;
+  }
+
+  .contact-right .contact-titulo-contacto {
+    font-size: 32px;
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-right .address ul li b {
+    font-size: 15px;
+    width: 300px;
+  }
+
+  .contact-right .address ul li p {
+    font-size: 15px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #contact-section {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 160px;
+  }
+
+  .contact-right .contact-titulo-contacto {
+    font-size: 32px;
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-right .address ul li b {
+    font-size: 15px;
+    width: 300px;
+  }
+
+  .contact-right .address ul li p {
+    font-size: 15px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #contact-section {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 160px;
+  }
+
+  .contact-right .contact-titulo-contacto {
+    font-size: 32px;
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-right .address ul li b {
+    font-size: 15px;
+    width: 300px;
+  }
+
+  .contact-right .address ul li p {
+    font-size: 15px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #contact-section {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 160px;
+  }
+
+  .contact-right .contact-titulo-contacto {
+    font-size: 32px;
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-right .address ul li b {
+    font-size: 12px;
+    width: 240px;
+  }
+
+  .contact-right .address ul li p {
+    font-size: 12px;
+  }
+
+  .contact-right .address {
+    margin-left: 25px;
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  #contact-section {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    margin-top: 120px;
+  }
+
+  .contact-right .contact-titulo-contacto {
+    color: #fe4c50;
+    font-size: 23px;
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-right .address ul li b {
+    font-size: 12px;
+  }
+
+  .contact-right .address ul li p {
+    font-size: 12px;
+  }
 }
 
