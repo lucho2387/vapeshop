@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react'
 import Registro from '../Screen/Registro/Registro'
 import Login from '../Screen/Login/Login'
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const AuthContext = React.createContext()
 
@@ -22,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => {
         signOut(auth)
-            .then(() => alert("Usuario desconectado"))
+            .then(() =>  toast.success("Su sesion se cerro correctamente"))
     }
                 
     return (
