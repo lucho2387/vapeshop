@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 // import { Link } from 'react-router-dom'
 import './loginForm.css'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const LoginForm = (props) => {
 
@@ -25,7 +27,8 @@ const LoginForm = (props) => {
                 })
                 .catch((error) => setError(error.message))
         }else {
-            alert("Hay campos vacios")
+            toast.error("Hay campos Vacios")
+            e.preventDefault()
         }   
     }
 
