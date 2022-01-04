@@ -5,9 +5,10 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Input from './Input'
 
 
-const Order = () => { 
+const Order = (props) => { 
   
     const fecha = new Date()
     const date = fecha.getDate() + '/' + (fecha.getMonth() + 1) + '/' + fecha.getFullYear();
@@ -15,10 +16,25 @@ const Order = () => {
     const deleteItem = useDeletefromCart()
      const deleteItems = useDeleteItems()
     const [total, setTotal] = useState(0)
+    // const [name, setName] = useState({campo: '', valido: null});
+    // const [apellido, setApellido] = useState({campo: '', valido: null});
+    // const [correo, setCorreo] = useState({campo: '', valido: null});
+    // const [telefono, setTelefono] = useState({ campo: '', valido: null });
     const [name, setName] = useState(null);
     const [apellido, setApellido] = useState(null);
     const [correo, setCorreo] = useState(null);
     const [telefono, setTelefono] = useState(null);
+
+    const campos = document.getElementById("contenedor-input")
+
+    const expresiones = {
+        usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+        name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+        apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+        // password: /^.{4,12}$/, // 4 a 12 digitos.
+        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+    }
 
     const db = getFirestore() 
     const refOrder = collection(db, "orderItems")
@@ -28,11 +44,18 @@ const Order = () => {
     }
 
     const addToOrder = (e) => {
-         if (name !== null && apellido !== null && correo !== null && telefono !== null) {
+         if (name !== null && apellido !== null && correo !== null && telefono !== null && total !== 0) {
             saveName(name, apellido, correo, telefono, date, total)
             toast.success("Su orden fue generada correctamente")
             deleteItems()
-        } else {
+        } else if(total === 0){
+            toast.error("No hay productos agregados al carrito, no se puede procesar su pedido")
+            e.preventDefault()
+            setName('')
+            setApellido('')
+            setCorreo('')
+            setTelefono('')
+         } else {
             toast.error("Hay campos Vacios")
             e.preventDefault()
         }
@@ -57,13 +80,45 @@ const Order = () => {
                 <h1 className='tituloOrdenCompra'>Orden De compra</h1>
                 </div>
                 
-                <div className='contenedor-input'>
+                <form className='contenedor-input'>
                     <h1>Datos del Cliente</h1>
-                    <input type="text" placeholder='Nombre' id="nombre" name='nombre' onChange={e => setName(e.target.value)} />
-                    <input type="text" placeholder='Apellido' id="apellido" name='apellido' onChange={e => setApellido(e.target.value)} />
-                    <input type="email" placeholder='Correo' id="correo" name='correo' onChange={e => setCorreo(e.target.value)} />
-                    <input type="number" placeholder='Telefono' id="telefono" name='telefono' onChange={e => setTelefono(e.target.value)}/>
-                </div>
+                    <Input
+                        tipo="text"
+                        error="Solo se permite el ingreso de texto"
+                        placeholder="Nombre"
+                        name="nombre"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        expresionRegular={expresiones.name}
+                    />
+                    <Input
+                        tipo="text"
+                        error="Solo se permite el ingreso de texto" 
+                        placeholder="Apellido"
+                        name="apellido"
+                        value={apellido}
+                        onChange={e => setApellido(e.target.value)}
+                        expresionRegular={expresiones.apellido}
+                    />
+                    <Input
+                        tipo="email"
+                        error="El correo no es valido" 
+                        placeholder="Correo"
+                        name="correo"
+                        value={correo}
+                        onChange={e => setCorreo(e.target.value)}
+                        expresionRegular={expresiones.correo}
+                    />
+                    <Input
+                        tipo="number"
+                        error="Solo se permite el ingreso de 7 a 14 numeros" 
+                        placeholder="Telefono"
+                        name="telefono"
+                        value={telefono}
+                        onChange={e => setTelefono(e.target.value)}
+                        expresionRegular={expresiones.telefono}
+                    />
+                </form>
                 <div className='contenedor-detalle'>
                     <div className='cart-detalle'>
                         <h1 className='tituloPedido'>Pedido</h1> 
@@ -75,7 +130,6 @@ const Order = () => {
             {       
                 cartItems?.map((item) => {
                     const {
-                        id,
                         name,
                         price,
                         count,
@@ -83,7 +137,7 @@ const Order = () => {
                     
                     return (
                         <>
-                            <div key={id} className="cart-container-order">
+                            <div key={item.id} className="cart-container-order">
                                 <div className='cart-card'>
                                     <span className="cart-title-order">{name}</span>
                                     <span className="cart-count-order">{count}</span>
@@ -102,3 +156,4 @@ const Order = () => {
 }
 
 export default Order
+
