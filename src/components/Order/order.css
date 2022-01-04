@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+/* COLORES */
+/* borde: "#0075FF",
+  error: "#bb2929",
+  exito: "#1ed12d", */
+
 .container-pedido {
   width: 90%;
   max-width: 1200px;
@@ -408,4 +413,3 @@
     width: 90%;
   }
 }
-
