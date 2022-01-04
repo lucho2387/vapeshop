@@ -1,0 +1,30 @@
+.grupoInput {
+  position: relative;
+  z-index: 90;
+}
+
+.grupoInput input:focus {
+  border: 1px solid #b5aec496;
+  border-right: 4px solid #fe4c4fb4;
+  border-radius: 5px;
+  box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.336);
+}
+
+.textoError {
+  color: #fe4c4f;
+  margin-right: 30px;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 5px;
+  /* display: none; */
+}
+
+.iconoSuccess {
+  position: absolute;
+  right: 35px;
+  bottom: 7px;
+  color: #b5aec4a8;
+  z-index: 100;
+  font-size: 18px;
+  opacity: 0;
+}
