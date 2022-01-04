@@ -60,9 +60,9 @@ const Order = () => {
                 <div className='contenedor-input'>
                     <h1>Datos del Cliente</h1>
                     <input type="text" placeholder='Nombre' id="nombre" name='nombre' onChange={e => setName(e.target.value)} />
-                    <input type="text" placeholder='Apellido' id="apellido" name='nombre' onChange={e => setApellido(e.target.value)} />
-                    <input type="email" placeholder='Correo' id="correo" name='nombre' onChange={e => setCorreo(e.target.value)} />
-                    <input type="text" placeholder='Telefono' id="telefono" name='nombre' onChange={e => setTelefono(e.target.value)}/>
+                    <input type="text" placeholder='Apellido' id="apellido" name='apellidp' onChange={e => setApellido(e.target.value)} />
+                    <input type="email" placeholder='Correo' id="correo" name='correo' onChange={e => setCorreo(e.target.value)} />
+                    <input type="text" placeholder='Telefono' id="telefono" name='telefono' onChange={e => setTelefono(e.target.value)}/>
                 </div>
                 <div className='contenedor-detalle'>
                     <div className='cart-detalle'>
