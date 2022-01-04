@@ -44,8 +44,16 @@ Contiene:
 - Eliminar Producto
 - Muestra el Total de la Compra
 - Actualiza el total al modificar cantidades de productos.
+- Vacia el Carrito
+- Elimina los Productos por Categoria.
 
-6. Login Y registro (View)
+6. Login Y registro (Auth)
+
+7. Validaciones en el Formulario de la Orden de Compra(Input)
+
+8. Integracion de mensajes Personalizados(toast)
+  
+9. Filtro de Productos por Categoria 
 
 ## Dependencias
 
