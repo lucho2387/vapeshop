@@ -25,8 +25,6 @@ const Order = (props) => {
     const [correo, setCorreo] = useState(null);
     const [telefono, setTelefono] = useState(null);
 
-    const campos = document.getElementById("contenedor-input")
-
     const expresiones = {
         usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
         name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
