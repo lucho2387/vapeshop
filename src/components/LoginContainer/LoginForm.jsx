@@ -36,7 +36,7 @@ const LoginForm = (props) => {
         <>  
             <div className="container-caja1">
                 <form className="container-form">
-                    <a href="/registro" className="form-enlace1">Registrarse</a>
+//                     <a href="/registro" className="form-enlace1">Registrarse</a>
                     {/* <a href="/" className="form-enlace2"><i class="fas fa-long-arrow-alt-left"></i></a> */}
                     <input className="form-input" type="email" placeholder="Correo" name='email' onChange={onChangeLogIn} />
                     <input className="form-input" type="password" placeholder="Contraseña" name='password' onChange={onChangeLogIn}/>
