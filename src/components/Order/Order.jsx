@@ -16,10 +16,6 @@ const Order = (props) => {
     const deleteItem = useDeletefromCart()
      const deleteItems = useDeleteItems()
     const [total, setTotal] = useState(0)
-    // const [name, setName] = useState({campo: '', valido: null});
-    // const [apellido, setApellido] = useState({campo: '', valido: null});
-    // const [correo, setCorreo] = useState({campo: '', valido: null});
-    // const [telefono, setTelefono] = useState({ campo: '', valido: null });
     const [name, setName] = useState(null);
     const [apellido, setApellido] = useState(null);
     const [correo, setCorreo] = useState(null);
