@@ -11,7 +11,10 @@ const Inicio = () => {
     return (
         <>
             <Header />
-            <h1 className="tituloInicio">Bienvenidos</h1>
+            <section className='contenedor'>
+                <div className='bg'></div>
+                <div className='paper'></div>
+            </section>
             <Footer />
         </>
      )
