@@ -29,7 +29,6 @@ const Input = ({value, tipo, placeholder, name, error, expresionRegular, onChang
                     onKeyUp={validacion}
                     onBlur={validacion}
                 />
-                <i className="far fa-check-circle iconoSuccess"></i>
             </div>
             {
                 errores ? '':  <p className='textoError'>{error}</p>
