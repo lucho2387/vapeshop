@@ -13,9 +13,7 @@
 .about-right {
   width: 57%;
 }
-/* .about-right b {
-  color: #7a7a7a96;
-} */
+
 .about-right ul li {
   display: flex;
   align-items: center;
