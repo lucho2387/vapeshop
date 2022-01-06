@@ -18,13 +18,3 @@
   margin-bottom: 5px;
   /* display: none; */
 }
-
-.iconoSuccess {
-  position: absolute;
-  right: 35px;
-  bottom: 7px;
-  color: #b5aec4a8;
-  z-index: 100;
-  font-size: 18px;
-  opacity: 0;
-}
