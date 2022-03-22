@@ -29,7 +29,7 @@ export function CartContextProvider({ children }) {
         return cartItems?.findIndex(item => item.id === product.id)
     }
 
-    const addToCart = (item) => {
+    const addToCart = (item,numero) => {
         item.count = numero
         if (isOnCart(item) === -1) {
             setCartItems([...cartItems, item])
