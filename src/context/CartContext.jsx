@@ -30,7 +30,7 @@ export function CartContextProvider({ children }) {
     }
 
     const addToCart = (item) => {
-        
+        item.count = numero
         if (isOnCart(item) === -1) {
             setCartItems([...cartItems, item])
             toast.success("El producto fue agregado al carrito")
