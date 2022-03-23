@@ -21,7 +21,7 @@ const ItemCount = ({ item, stock, price }) => {
     return (
         <>
         <div className="container">
-            {<button className="botonDisminuir1"  onClick={onDecrease}>-</button>
+            <button className="botonDisminuir1"  onClick={onDecrease}>-</button>
             <h3 className="cantidad1">{`${numero}`}</h3>
             <button className="botonIncrementar1" onClick={onIncrease}>+</button>}
             {/* <h4 className="precioProducto1">Total $ <span className="spanPrecio1">{price * numero}</span></h4> */}
