@@ -33,14 +33,17 @@ const Order = (props) => {
     const db = getFirestore() 
     const refOrder = collection(db, "orderItems")
 
-    const saveName = (nombre, apellido, correo, telefono, fecha, total) => {
-        addDoc(refOrder, { nombre, apellido, correo, telefono, fecha, total})
-    }
+//     const saveName = (nombre, apellido, correo, telefono, fecha, total) => {
+//         addDoc(refOrder, { nombre, apellido, correo, telefono, fecha, total})
+//     }
 
     const addToOrder = (e) => {
          if (name !== null && apellido !== null && correo !== null && telefono !== null && total !== 0) {
-            saveName(name, apellido, correo, telefono, date, total)
-            toast.success("Su orden fue generada correctamente")
+            addDoc(refOrder, {name, apellido, correo, telefono, fecha, total})
+                .then((snapShot) => {
+                    const numOrder = snapShot.id
+                    toast.success(`Su orden con id: ${numOrder} fue generada correctamente `)
+                })
             deleteItems()
         } else if(total === 0){
             toast.error("No hay productos agregados al carrito, no se puede procesar su pedido")
